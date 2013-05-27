@@ -6,6 +6,7 @@ package model;
 
 import com.google.code.morphia.annotations.Entity;
 import com.google.code.morphia.annotations.Id;
+import java.util.ArrayList;
 import java.util.List;
 
 /**
@@ -22,10 +23,17 @@ public class HistoriaClinica {
     public HistoriaClinica(){
         
     }
+    
+    public HistoriaClinica(int idHistoria) {
+        this.idHistoria = idHistoria;
+        this.citas = new ArrayList<Cita>();
+    }
+    
     public HistoriaClinica(int idHistoria, List<Cita> citas) {
         this.idHistoria = idHistoria;
         this.citas = citas;
     }
+    
 
     public int getIdHistoria() {
         return idHistoria;
@@ -41,5 +49,9 @@ public class HistoriaClinica {
 
     public void setCitas(List<Cita> citas) {
         this.citas = citas;
+    }
+    
+    public void add(Cita appointment) {
+        this.citas.add(appointment);
     }
 }

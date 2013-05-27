@@ -4,11 +4,10 @@
  */
 package view;
 
-import java.util.ArrayList;
+import control.AdminMedicalRecords;
+import control.AdminPersons;
 import model.Persona;
-import model.Cita;
 import model.HistoriaClinica;
-import model.dao.SingleDAO;
 
 /**
  *
@@ -20,13 +19,14 @@ public class EPSUN {
      * @param args the command line arguments
      */
     public static void main(String[] args) {
-        SingleDAO singletonDAO = new SingleDAO();
+        AdminMedicalRecords adminMedicalRecords = new AdminMedicalRecords();
+        AdminPersons adminPersons = new AdminPersons();
+      
+        adminPersons.createPerson(1, "pedro", "perez", "57123456789", 123);
+        adminMedicalRecords.createMedicalRecord(1);
         
-        /*singletonDAO.getPersonaDAO().save(new Persona(1, "pedro", "perez", "57123456789", 123));
-        singletonDAO.getHistoriaDAO().save(new HistoriaClinica(1,new ArrayList<Cita>()));*/
-        
-        Persona persona = singletonDAO.getPersonaDAO().get(1);
-        HistoriaClinica historia = singletonDAO.getHistoriaDAO().get(1);
+        Persona persona = adminPersons.getPerson(1);
+        HistoriaClinica historia = adminMedicalRecords.getMedicalRecord(1);
         
         System.out.println(persona.getNombre()+" "+persona.getApellido()+" "+persona.getTelefono());
         System.out.println(""+historia.getIdHistoria()+" "+historia.getCitas());

@@ -44,4 +44,13 @@ public class SingleDAO {
     public HistoriaClinicaDAO getHistoriaDAO() {
         return historiaDAO;
     }
+    
+    public synchronized static SingleDAO getInstance() {
+		while (m_this == null) {
+			m_this = new SingleDAO();
+		}
+		return m_this;
+    }
+    
+    private static SingleDAO m_this;
 }
