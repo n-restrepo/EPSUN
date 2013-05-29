@@ -19,7 +19,7 @@ public class BankPayments {
         
         ROb received = new ROb();
         received.setData(payment);
-        received.setErr_message("");
+        received.setErr_message("error");
         received.setSuccess(true);
         
         return received;

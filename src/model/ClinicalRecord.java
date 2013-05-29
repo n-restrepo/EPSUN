@@ -14,22 +14,22 @@ import java.util.List;
  * @author Sebastian
  */
 @Entity
-public class HistoriaClinica {
+public class ClinicalRecord {
     @Id
     private Integer idHistoria;
     
-    private List<Cita> citas;
+    private List<Appointment> citas;
 
-    public HistoriaClinica(){
+    public ClinicalRecord(){
         
     }
     
-    public HistoriaClinica(int idHistoria) {
+    public ClinicalRecord(int idHistoria) {
         this.idHistoria = idHistoria;
-        this.citas = new ArrayList<Cita>();
+        this.citas = new ArrayList<Appointment>();
     }
     
-    public HistoriaClinica(int idHistoria, List<Cita> citas) {
+    public ClinicalRecord(int idHistoria, List<Appointment> citas) {
         this.idHistoria = idHistoria;
         this.citas = citas;
     }
@@ -43,15 +43,15 @@ public class HistoriaClinica {
         this.idHistoria = idHistoria;
     }
 
-    public List<Cita> getCitas() {
+    public List<Appointment> getCitas() {
         return citas;
     }
 
-    public void setCitas(List<Cita> citas) {
+    public void setCitas(List<Appointment> citas) {
         this.citas = citas;
     }
     
-    public void add(Cita appointment) {
+    public void add(Appointment appointment) {
         this.citas.add(appointment);
     }
 }

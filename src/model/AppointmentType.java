@@ -8,6 +8,6 @@ package model;
  *
  * @author Sebastian
  */
-class TipoCita {
+class AppointmentType {
     
 }

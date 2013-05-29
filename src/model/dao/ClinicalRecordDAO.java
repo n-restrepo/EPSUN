@@ -8,21 +8,19 @@ import com.google.code.morphia.Morphia;
 import com.google.code.morphia.dao.BasicDAO;
 import com.mongodb.Mongo;
 import java.util.List;
-import model.Persona;
+import model.ClinicalRecord;
 
 /**
  *
  * @author Sebastian
  */
-public class PersonaDAO extends BasicDAO<Persona, Integer> {
+public class ClinicalRecordDAO extends BasicDAO<ClinicalRecord, Integer>{
 
-    public PersonaDAO(Mongo mongo, Morphia morphia, String dbName) {
+    public ClinicalRecordDAO(Mongo mongo, Morphia morphia, String dbName) {
         super(mongo, morphia, dbName);
     }
-    
     public List findAll()
     {
-        return ds.find(Persona.class).asList();
+        return ds.find(ClinicalRecord.class).asList();
     }
-    
 }

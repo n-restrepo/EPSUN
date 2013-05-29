@@ -6,8 +6,8 @@ package view;
 
 import control.AdminMedicalRecords;
 import control.AdminPersons;
-import model.Persona;
-import model.HistoriaClinica;
+import model.Person;
+import model.ClinicalRecord;
 
 /**
  *
@@ -25,8 +25,8 @@ public class EPSUN {
         adminPersons.createPerson(1, "pedro", "perez", "57123456789", 123);
         adminMedicalRecords.createMedicalRecord(1);
         
-        Persona persona = adminPersons.getPerson(1);
-        HistoriaClinica historia = adminMedicalRecords.getMedicalRecord(1);
+        Person persona = adminPersons.getPerson(1);
+        ClinicalRecord historia = adminMedicalRecords.getMedicalRecord(1);
         
         System.out.println(persona.getNombre()+" "+persona.getApellido()+" "+persona.getTelefono());
         System.out.println(""+historia.getIdHistoria()+" "+historia.getCitas());

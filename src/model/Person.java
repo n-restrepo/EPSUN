@@ -12,7 +12,7 @@ import com.google.code.morphia.annotations.Id;
  * @author Sebastian
  */
 @Entity
-public class Persona {
+public class Person {
     @Id
     private Integer idPersona;
     
@@ -21,10 +21,10 @@ public class Persona {
     private String telefono;
     private int edad;
 
-    public Persona(){
+    public Person(){
         
     }
-    public Persona(int idPersona, String nombre, String apellido, String telefono, int edad) {
+    public Person(int idPersona, String nombre, String apellido, String telefono, int edad) {
         this.idPersona = idPersona;
         this.nombre = nombre;
         this.apellido = apellido;

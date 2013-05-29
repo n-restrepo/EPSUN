@@ -4,8 +4,8 @@
  */
 package control;
 
-import model.Cita;
-import model.HistoriaClinica;
+import model.Appointment;
+import model.ClinicalRecord;
 import model.ProcessResult;
 import model.dao.SingleDAO;
 
@@ -16,17 +16,17 @@ import model.dao.SingleDAO;
 public class AdminMedicalRecords {
     
     public ProcessResult createMedicalRecord(Integer idPerson) {
-        HistoriaClinica newRecord = new HistoriaClinica(idPerson);
+        ClinicalRecord newRecord = new ClinicalRecord(idPerson);
         SingleDAO.getInstance().getHistoriaDAO().save(newRecord);
         return ProcessResult.COMPLETED;
     }
     
-    public HistoriaClinica getMedicalRecord(Integer id) {
+    public ClinicalRecord getMedicalRecord(Integer id) {
         return SingleDAO.getInstance().getHistoriaDAO().get(id);
     }
     
-    public ProcessResult addAppointment(Integer id, Cita appointment) {
-        HistoriaClinica record = SingleDAO.getInstance().getHistoriaDAO().get(id);
+    public ProcessResult addAppointment(Integer id, Appointment appointment) {
+        ClinicalRecord record = SingleDAO.getInstance().getHistoriaDAO().get(id);
         record.add(appointment);
         return ProcessResult.COMPLETED;
     }

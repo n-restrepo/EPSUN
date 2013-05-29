@@ -7,8 +7,8 @@ package model.dao;
 import com.google.code.morphia.Morphia;
 import com.mongodb.Mongo;
 import java.net.UnknownHostException;
-import model.HistoriaClinica;
-import model.Persona;
+import model.ClinicalRecord;
+import model.Person;
 
 /**
  *
@@ -20,8 +20,8 @@ public class SingleDAO {
     private String dbName = "EPS";
 
     //Specific DAO's
-    private PersonaDAO personaDAO;
-    private HistoriaClinicaDAO historiaDAO;
+    private PersonDAO personaDAO;
+    private ClinicalRecordDAO historiaDAO;
     
     public SingleDAO() {
         
@@ -31,17 +31,17 @@ public class SingleDAO {
         } catch(UnknownHostException e){}
         
         morphia = new Morphia();
-        morphia.map(Persona.class).map(HistoriaClinica.class);
+        morphia.map(Person.class).map(ClinicalRecord.class);
         
-        personaDAO = new PersonaDAO(mongo, morphia, dbName);
-        historiaDAO = new HistoriaClinicaDAO(mongo, morphia, dbName);
+        personaDAO = new PersonDAO(mongo, morphia, dbName);
+        historiaDAO = new ClinicalRecordDAO(mongo, morphia, dbName);
     }
 
-    public PersonaDAO getPersonaDAO() {
+    public PersonDAO getPersonaDAO() {
         return personaDAO;
     }
 
-    public HistoriaClinicaDAO getHistoriaDAO() {
+    public ClinicalRecordDAO getHistoriaDAO() {
         return historiaDAO;
     }
     
